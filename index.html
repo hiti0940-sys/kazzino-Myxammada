@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>🎰 Братик-Казино 5.0</title>
+<title>🎰 Братик-Казино 6.0</title>
 <style>
-:root{--bg:#0a0a0f;--panel:#141424;--panel2:#1e1e36;--accent:#ff0055;--accent2:#7a00ff;--gold:#ffcc00;--green:#00ff88;--text:#fff;--muted:#8888a0;--glass:rgba(30,30,54,0.7);}
+:root{--bg:#0a0a0f;--panel:#141424;--panel2:#1e1e36;--accent:#ff0055;--accent2:#7a00ff;--gold:#ffcc00;--green:#00ff88;--text:#fff;--muted:#8888a0;--glass:rgba(20,20,36,0.8);}
 *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',sans-serif;}
 body{background:var(--bg);color:var(--text);min-height:100vh;padding:14px;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%, #1e1e36 0%, #0a0a0f 60%);}
 #app,#auth-screen{max-width:1000px;margin:0 auto;display:none;}
@@ -18,11 +18,9 @@ body{background:var(--bg);color:var(--text);min-height:100vh;padding:14px;overfl
 .auth-box input:focus{border-color:var(--accent);}
 .auth-box button{width:100%;padding:12px;background:linear-gradient(90deg,var(--accent),var(--accent2));border:none;border-radius:10px;color:#fff;font-weight:800;font-size:15px;cursor:pointer;margin-top:10px;transition:.2s;}
 .auth-box button:hover{transform:scale(1.02);box-shadow:0 0 15px var(--accent);}
-.auth-toggle{text-align:center;margin-top:15px;font-size:13px;color:var(--muted);cursor:pointer;}
-.auth-toggle:hover{color:#fff;}
 
 /* ШАПКА */
-header{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;background:var(--glass);backdrop-filter:blur(10px);padding:12px 16px;border-radius:14px;border:1px solid rgba(255,255,255,0.05);margin-bottom:12px;box-shadow:0 4px 15px rgba(0,0,0,0.5);}
+header{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;background:var(--glass);backdrop-filter:blur(10px);padding:12px 16px;border-radius:14px;border:1px solid rgba(255,255,255,0.05);margin-bottom:12px;}
 .wallets{display:flex;gap:12px;font-weight:800;font-size:16px;flex-wrap:wrap;}
 .c-coins{color:var(--gold);text-shadow:0 0 5px var(--gold);}
 .c-gold{color:#ffaa00;}
@@ -31,7 +29,7 @@ header{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-
 
 /* НАВИГАЦИЯ */
 nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
-nav button{flex:1;min-width:85px;padding:10px 6px;background:rgba(255,255,255,0.05);color:var(--muted);border:1px solid transparent;border-radius:10px;cursor:pointer;font-weight:700;font-size:12px;transition:.2s;}
+nav button{flex:1;min-width:80px;padding:10px 6px;background:rgba(255,255,255,0.05);color:var(--muted);border:1px solid transparent;border-radius:10px;cursor:pointer;font-weight:700;font-size:11px;transition:.2s;}
 nav button:hover{color:#fff;background:rgba(255,255,255,0.1);}
 nav button.active{background:var(--accent2);color:#fff;box-shadow:0 0 15px rgba(122,0,255,0.5);}
 .tab{display:none;background:var(--glass);backdrop-filter:blur(10px);padding:16px;border-radius:14px;border:1px solid rgba(255,255,255,0.05);}
@@ -58,41 +56,52 @@ button.action:disabled{background:#333;color:#666;cursor:not-allowed;transform:n
 .case-card{background:rgba(0,0,0,0.4);border:1px solid var(--panel2);border-radius:12px;padding:16px;text-align:center;cursor:pointer;transition:.2s;}
 .case-card:hover{border-color:var(--gold);transform:translateY(-3px);}
 .case-card .e{font-size:40px;display:block;margin-bottom:8px;}
-.case-card .n{font-weight:800;margin-bottom:4px;}
-.case-card .p{font-size:12px;color:var(--gold);font-weight:700;}
 
 /* ИНВЕНТАРЬ */
-.inv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px;margin-top:15px;}
-.inv-item{background:rgba(0,0,0,0.5);border:1px solid var(--panel2);border-radius:10px;padding:10px;text-align:center;position:relative;}
-.inv-item .e{font-size:36px;margin-bottom:5px;}
-.inv-item .n{font-size:11px;font-weight:bold;}
-.inv-item .r{font-size:9px;text-transform:uppercase;margin-top:3px;}
-.inv-item.legendary{border-color:var(--gold);box-shadow:0 0 10px rgba(255,204,0,0.3);}
-.inv-item.rare{border-color:#3b82f6;}
-.inv-item.common{border-color:#555;}
+.inv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-top:15px;}
+.inv-item{background:rgba(0,0,0,0.5);border:2px solid var(--panel2);border-radius:10px;padding:15px 10px;text-align:center;position:relative;transition:.2s;}
+.inv-item:hover{transform:translateY(-3px);}
+.inv-item .e{font-size:40px;margin-bottom:5px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.3));}
+.inv-item .n{font-size:12px;font-weight:bold;}
+.inv-item .r{font-size:10px;text-transform:uppercase;margin-top:4px;font-weight:800;}
+.inv-item.legendary{border-color:var(--gold);box-shadow:0 0 15px rgba(255,204,0,0.4);background:linear-gradient(180deg, rgba(255,204,0,0.1) 0%, rgba(0,0,0,0.5) 100%);}
+.inv-item.rare{border-color:#3b82f6;box-shadow:0 0 10px rgba(59,130,246,0.3);background:linear-gradient(180deg, rgba(59,130,246,0.1) 0%, rgba(0,0,0,0.5) 100%);}
+
+/* АПГРЕЙДЕР (КОЛЕСО) */
+.wheel-container{position:relative;width:220px;height:220px;margin:30px auto;}
+.wheel{width:100%;height:100%;border-radius:50%;background:conic-gradient(#00ff88 0 50%, #ff0055 50% 100%);border:4px solid var(--panel2);transition:transform 3s cubic-bezier(0.1, 0.8, 0.2, 1);display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(0,255,136,0.2);}
+.wheel-inner{width:70%;height:70%;background:var(--panel);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:var(--gold);border:4px solid var(--panel2);z-index:2;}
+.wheel-pointer{position:absolute;top:-15px;left:50%;transform:translateX(-50%);font-size:36px;color:var(--gold);z-index:10;filter:drop-shadow(0 0 10px var(--gold));}
 
 /* БОИ */
-.arena{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;margin:30px 0;background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);padding:30px 20px 10px;border-radius:14px;border-bottom:4px solid var(--accent);position:relative;height:220px;}
+.arena{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;margin:20px 0;background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);padding:30px 20px 20px;border-radius:14px;border-bottom:4px solid var(--accent);position:relative;height:240px;}
 .fighter{flex:1;text-align:center;position:relative;transition:.2s;display:flex;flex-direction:column;align-items:center;}
-.fighter .avatar{font-size:70px;transition:transform .15s;display:inline-block;line-height:1;}
+.fighter .avatar{font-size:80px;transition:transform .15s;display:inline-block;line-height:1;filter:drop-shadow(0 5px 10px rgba(0,0,0,0.5));}
 .fighter.punch-left .avatar{transform:translateX(40px) rotate(15deg);}
 .fighter.punch-right .avatar{transform:translateX(-40px) rotate(-15deg);}
-.fighter.dodge-left .avatar{transform:translateX(-30px) rotate(-10deg);}
-.fighter.dodge-right .avatar{transform:translateX(30px) rotate(10deg);}
-.fighter .name{font-weight:800;color:var(--gold);margin:10px 0 5px;font-size:14px;background:rgba(0,0,0,0.5);padding:2px 8px;border-radius:5px;}
-.hpbar{width:100%;height:12px;background:#333;border-radius:6px;overflow:hidden;margin-top:5px;border:1px solid #000;}
+.fighter .name{font-weight:800;color:var(--gold);margin:10px 0 5px;font-size:14px;background:rgba(0,0,0,0.7);padding:4px 10px;border-radius:8px;border:1px solid #333;}
+.hpbar{width:100%;height:14px;background:#222;border-radius:7px;overflow:hidden;margin-top:5px;border:1px solid #000;box-shadow:0 0 10px rgba(0,0,0,0.5);}
 .hpfill{height:100%;background:linear-gradient(90deg,var(--green),#00cc66);transition:width .3s;box-shadow:0 0 10px var(--green);}
-.hit-effect{position:absolute;top:20%;left:50%;transform:translateX(-50%);font-size:24px;font-weight:900;color:var(--accent);text-shadow:0 0 10px var(--accent);opacity:0;pointer-events:none;}
-.hit-effect.show{animation:hitAnim .5s forwards;}
-@keyframes hitAnim{0%{opacity:1;transform:translateX(-50%) scale(1);}100%{opacity:0;transform:translateX(-50%) translateY(-40px) scale(1.5);}}
+.hit-effect{position:absolute;top:20%;left:50%;transform:translateX(-50%);font-size:26px;font-weight:900;color:var(--accent);text-shadow:0 0 10px var(--accent);opacity:0;pointer-events:none;z-index:10;}
+.hit-effect.show{animation:hitAnim .6s forwards;}
+@keyframes hitAnim{0%{opacity:1;transform:translateX(-50%) scale(1);}100%{opacity:0;transform:translateX(-50%) translateY(-50px) scale(1.5);}}
+.fighter-select{cursor:pointer;padding:10px;background:var(--panel2);border-radius:8px;border:2px solid transparent;transition:.2s;text-align:center;}
+.fighter-select.active{border-color:var(--gold);background:rgba(255,204,0,0.1);}
+.fighter-select .e{font-size:30px;}
 
-/* КРИПТА */
+/* ТУРНИР */
+.bracket{display:flex;gap:10px;overflow-x:auto;padding:10px 0;margin-top:15px;}
+.round{display:flex;flex-direction:column;gap:10px;min-width:140px;justify-content:space-around;}
+.match{background:var(--panel2);border:1px solid #333;border-radius:8px;padding:8px;font-size:12px;}
+.match-winner{color:var(--green);font-weight:bold;}
+
+/* ГРАФИК */
 .crypto-chart{width:100%;height:150px;background:#000;border:1px solid #333;border-radius:10px;margin:10px 0;position:relative;overflow:hidden;}
 .crypto-line{fill:none;stroke:var(--green);stroke-width:3;stroke-linejoin:round;transition:stroke .3s, points .3s;}
 .crypto-price{font-size:36px;font-weight:900;color:var(--green);text-align:center;text-shadow:0 0 15px var(--green);}
 .crypto-price.down{color:var(--accent);text-shadow:0 0 15px var(--accent);}
 
-/* АДМИН ЩИТ */
+/* АДМИН */
 .admin-panel{background:linear-gradient(135deg, rgba(122,0,255,0.2), rgba(255,0,85,0.2));border:2px solid var(--accent2);border-radius:14px;padding:20px;box-shadow:0 0 30px rgba(122,0,255,0.3);}
 .admin-btn{background:rgba(0,0,0,0.5);border:1px solid var(--accent);color:#fff;padding:12px;border-radius:8px;cursor:pointer;font-weight:bold;margin-bottom:10px;width:100%;transition:.2s;}
 .admin-btn:hover{background:var(--accent);}
@@ -103,19 +112,17 @@ button.action:disabled{background:#333;color:#666;cursor:not-allowed;transform:n
 </head>
 <body>
 
-<!-- АВТОРИЗАЦИЯ -->
 <div id="auth-screen">
   <div class="auth-box">
-    <h1>🎰 БРАТИК-КАЗИНО</h1>
+    <h1>🎰 БРАТИК 6.0</h1>
     <input type="text" id="auth-login" placeholder="Логин" autocomplete="off">
     <input type="password" id="auth-pass" placeholder="Пароль" autocomplete="off">
     <button onclick="doLogin()">ВОЙТИ</button>
     <button onclick="doRegister()" style="background:transparent;border:1px solid var(--accent);color:var(--accent);margin-top:8px;">РЕГИСТРАЦИЯ</button>
-    <div class="auth-toggle" id="auth-msg"></div>
+    <div class="auth-toggle" id="auth-msg" style="text-align:center;margin-top:10px;font-size:12px;"></div>
   </div>
 </div>
 
-<!-- ОСНОВНОЕ ПРИЛОЖЕНИЕ -->
 <div id="app">
   <header>
     <div style="font-weight:800;font-size:16px;" id="disp-nick">Игрок</div>
@@ -130,9 +137,11 @@ button.action:disabled{background:#333;color:#666;cursor:not-allowed;transform:n
   <nav id="main-nav">
     <button data-tab="cases" class="active">🎁 Кейсы</button>
     <button data-tab="inventory">🎒 Инвентарь</button>
-    <button data-tab="crash">📈 Краш</button>
-    <button data-tab="crypto">₿ Крипта</button>
+    <button data-tab="upgrade">🎡 Апгрейд</button>
     <button data-tab="fight">🥊 Бои</button>
+    <button data-tab="tournament">🏆 Турнир</button>
+    <button data-tab="race">🐎 Скачки</button>
+    <button data-tab="crypto">₿ Крипта</button>
     <button data-tab="admin" id="nav-admin" style="display:none; color:var(--gold); border:1px solid var(--gold);">🛡 Щит</button>
   </nav>
 
@@ -150,25 +159,86 @@ button.action:disabled{background:#333;color:#666;cursor:not-allowed;transform:n
   <!-- ИНВЕНТАРЬ -->
   <section id="inventory" class="tab">
     <h2>🎒 Твой Инвентарь</h2>
-    <p class="muted">Здесь хранятся твои скины и подарки. Выбивай их из кейсов!</p>
-    <div class="inv-grid" id="inv-grid">
-      <div class="muted" style="grid-column: 1/-1; text-align:center; padding:20px;">Инвентарь пуст...</div>
-    </div>
+    <p class="muted">Твои скины и подарки. Выбивай их из кейсов!</p>
+    <div class="inv-grid" id="inv-grid"></div>
   </section>
 
-  <!-- КРАШ -->
-  <section id="crash" class="tab">
-    <h2>📈 Краш</h2>
-    <div style="text-align:center;padding:30px;background:rgba(0,0,0,0.6);border-radius:14px;border:1px solid #333;">
-      <div id="crash-mult" style="font-size:60px;font-weight:900;color:var(--green);transition:color .2s;">1.00×</div>
-      <div id="crash-status" class="muted" style="margin-top:10px;font-size:14px;">Готов к старту</div>
+  <!-- АПГРЕЙДЕР -->
+  <section id="upgrade" class="tab">
+    <h2>🎡 Апгрейдер (TikTok Style)</h2>
+    <div class="wheel-container">
+      <div class="wheel-pointer">▼</div>
+      <div class="wheel" id="wheel">
+        <div class="wheel-inner" id="wheel-text">50%</div>
+      </div>
     </div>
+    <div class="row">
+      <div><label>Ставка (💰)</label><input type="number" id="up-bet" value="100"></div>
+      <div><label>Шанс: <span id="up-chance-val">50</span>%</label><input type="range" id="up-chance" min="10" max="90" step="10" value="50"></div>
+    </div>
+    <button class="action" id="up-play">КРУТИТЬ</button>
+    <div id="up-result" style="text-align:center;margin-top:10px;font-weight:700;min-height:25px;"></div>
+  </section>
+
+  <!-- БОИ -->
+  <section id="fight" class="tab">
+    <h2>🥊 Выбери Бойца</h2>
+    <div class="row" id="fighter-selects">
+      <!-- Генерится JS -->
+    </div>
+    
+    <div class="arena">
+      <div class="fighter" id="f-left">
+        <div class="hit-effect" id="fx-left"></div>
+        <div class="avatar" id="f-l-ava">🥊</div>
+        <div class="name" id="f-l-name">Игрок</div>
+        <div class="hpbar"><div class="hpfill" id="f-l-hp" style="width:100%;"></div></div>
+      </div>
+      <div style="font-size:24px;font-weight:900;color:var(--accent);margin-bottom:40px;">VS</div>
+      <div class="fighter" id="f-right">
+        <div class="hit-effect" id="fx-right"></div>
+        <div class="avatar" id="f-r-ava">🥊</div>
+        <div class="name" id="f-r-name">Враг</div>
+        <div class="hpbar"><div class="hpfill" id="f-r-hp" style="width:100%;background:linear-gradient(90deg,var(--accent),#cc0044);"></div></div>
+      </div>
+    </div>
+    <div class="row">
+      <div><label>Ставка (💰)</label><input type="number" id="f-bet" value="100"></div>
+    </div>
+    <button class="action" id="f-play">В БОЙ (×2)</button>
+    <div id="f-result" style="text-align:center;margin-top:10px;font-weight:700;min-height:25px;"></div>
+  </section>
+
+  <!-- ТУРНИР -->
+  <section id="tournament" class="tab">
+    <h2>🏆 Турнир на 8 Бойцов</h2>
+    <p class="muted">Выбери, кто заберёт кубок. Если угадал — забираешь весь банк!</p>
+    <div class="row" style="margin-top:10px;">
+      <div><label>Ставка на победу (💰)</label><input type="number" id="t-bet" value="500"></div>
+      <div><label>Кто победит?</label><select id="t-pick"></select></div>
+    </div>
+    <button class="action" id="t-play">Начать Турнир (Банк ×6)</button>
+    <div class="bracket" id="t-bracket"></div>
+    <div id="t-result" style="text-align:center;margin-top:10px;font-weight:700;"></div>
+  </section>
+
+  <!-- СКАЧКИ -->
+  <section id="race" class="tab">
+    <h2>🐎 Королевские Скачки</h2>
+    <div id="race-tracks"></div>
     <div class="row" style="margin-top:15px;">
-      <div><label>Ставка (💰)</label><input type="number" id="cr-bet" value="100"></div>
+      <div><label>Ставка (💰)</label><input type="number" id="r-bet" value="100"></div>
+      <div><label>На кого</label>
+        <select id="r-side">
+          <option value="0">🐎 Красный</option>
+          <option value="1">🐎 Жёлтый</option>
+          <option value="2">🐎 Зелёный</option>
+          <option value="3">🐎 Синий</option>
+        </select>
+      </div>
     </div>
-    <button class="action" id="cr-start">🚀 СТАРТ</button>
-    <button class="action" id="cr-cash" style="display:none;background:linear-gradient(90deg,#00ff88,#00cc66);color:#000;">💵 ЗАБРАТЬ НА <span id="cash-mult">1.00×</span></button>
-    <div id="cr-result" style="text-align:center;margin-top:10px;font-weight:700;"></div>
+    <button class="action" id="r-play">СТАРТ (×3)</button>
+    <div id="r-result" style="text-align:center;margin-top:10px;font-weight:700;min-height:25px;"></div>
   </section>
 
   <!-- КРИПТА -->
@@ -191,32 +261,6 @@ button.action:disabled{background:#333;color:#666;cursor:not-allowed;transform:n
     <div style="margin-top:10px;"><label>Сумма (в 💰)</label><input type="number" id="crypto-amount" value="100"></div>
   </section>
 
-  <!-- БОИ -->
-  <section id="fight" class="tab">
-    <h2>🥊 Боксёрский Ринг</h2>
-    <div class="arena">
-      <div class="fighter" id="f-left">
-        <div class="hit-effect" id="fx-left"></div>
-        <div class="avatar">🥊</div>
-        <div class="name" id="f-l-name">Игрок</div>
-        <div class="hpbar"><div class="hpfill" id="f-l-hp" style="width:100%;"></div></div>
-      </div>
-      <div style="font-size:24px;font-weight:900;color:var(--accent);margin-bottom:40px;">VS</div>
-      <div class="fighter" id="f-right">
-        <div class="hit-effect" id="fx-right"></div>
-        <div class="avatar">🥊</div>
-        <div class="name" id="f-r-name">Соперник</div>
-        <div class="hpbar"><div class="hpfill" id="f-r-hp" style="width:100%;background:linear-gradient(90deg,var(--accent),#cc0044);"></div></div>
-      </div>
-    </div>
-    <div class="row">
-      <div><label>Ставка (💰)</label><input type="number" id="f-bet" value="100"></div>
-      <div><label>На кого</label><select id="f-side"><option value="left">Левый (Ты)</option><option value="right">Правый</option></select></div>
-    </div>
-    <button class="action" id="f-play">В БОЙ (×2)</button>
-    <div id="f-result" style="text-align:center;margin-top:10px;font-weight:700;min-height:25px;"></div>
-  </section>
-
   <!-- АДМИН -->
   <section id="admin" class="tab">
     <h2>🛡 Щит Панель</h2>
@@ -225,8 +269,8 @@ button.action:disabled{background:#333;color:#666;cursor:not-allowed;transform:n
       <button class="admin-btn" onclick="ADMIN.addCoins(1000000)">💰 +1,000,000 Монет</button>
       <button class="admin-btn" onclick="ADMIN.addGold(1000)">🥇 +1000 Золота</button>
       <button class="admin-btn" onclick="ADMIN.addGems(500)">💎 +500 Гемов</button>
-      <button class="admin-btn" onclick="ADMIN.dropKnife()">🔪 Выдать Керамбит</button>
-      <button class="admin-btn" style="border-color:var(--accent); color:var(--accent);" onclick="localStorage.clear();location.reload();">🗑 ПОЛНЫЙ СБРОС СЕРВЕРА</button>
+      <button class="admin-btn" onclick="ADMIN.dropKnife()">🔪 Выдать Легендарку</button>
+      <button class="admin-btn" style="border-color:var(--accent); color:var(--accent);" onclick="localStorage.clear();location.reload();">🗑 СБРОС СЕРВЕРА</button>
     </div>
   </section>
 
@@ -236,17 +280,13 @@ button.action:disabled{background:#333;color:#666;cursor:not-allowed;transform:n
 
 <script>
 // ================= БАЗА ДАННЫХ =================
-let DB = JSON.parse(localStorage.getItem('bratik_users_v5')) || {};
+let DB = JSON.parse(localStorage.getItem('bratik_users_v6')) || {};
 let currentUser = sessionStorage.getItem('bratik_active') || null;
-let S = null; // Ссылка на текущего юзера
+let S = null;
 let cryptoInt = null;
 
-function saveDB() {
-  localStorage.setItem('bratik_users_v5', JSON.stringify(DB));
-}
-function saveUser() {
-  if (S) { DB[S.login] = S; saveDB(); }
-}
+function saveDB() { localStorage.setItem('bratik_users_v6', JSON.stringify(DB)); }
+function saveUser() { if (S) { DB[S.login] = S; saveDB(); } }
 
 // ================= АВТОРИЗАЦИЯ =================
 function showMsg(text, isError) {
@@ -275,14 +315,12 @@ function doLogin() {
   const login = document.getElementById('auth-login').value.trim();
   const pass = document.getElementById('auth-pass').value.trim();
   
-  // Секретный админ
   if (login === 'Admin' && pass === 'admin123') {
     if (!DB['Admin']) {
       DB['Admin'] = { login: 'Admin', pass: 'admin123', role: 'admin', coins: 999999, gold: 999, gems: 999, btc: 0, btcPrice: 60000, btcHistory: [60000], inventory: [] };
       saveDB();
     }
   }
-
   if (!DB[login] || DB[login].pass !== pass) return showMsg('Неверный логин или пароль!', true);
   
   currentUser = login;
@@ -310,10 +348,13 @@ function loadGame() {
   
   renderAll();
   initCrypto();
+  initFighters();
+  renderTournamentPicks();
 }
 
 // ================= ОБЩЕЕ =================
 function renderAll() {
+  if(!S) return;
   document.getElementById('coins').textContent = Math.floor(S.coins);
   document.getElementById('gold').textContent = S.gold;
   document.getElementById('gems').textContent = S.gems;
@@ -340,37 +381,56 @@ document.querySelectorAll('nav button').forEach(btn => {
   };
 });
 
-// ================= ИНВЕНТАРЬ И КЕЙСЫ =================
+// ================= СКИНЫ И ИНВЕНТАРЬ =================
 const SKINS = [
-  { e: '🔪', n: 'Керамбит', r: 'legendary', c: '#ffcc00' },
-  { e: '🗡️', n: 'Бабочка', r: 'legendary', c: '#ffcc00' },
+  { e: '🔪', n: 'Керамбит Градиент', r: 'legendary', c: '#ffcc00' },
+  { e: '🗡️', n: 'Бабочка Убийца', r: 'legendary', c: '#ffcc00' },
+  { e: '⚔️', n: 'Катана Самурая', r: 'legendary', c: '#ffcc00' },
+  { e: '🪓', n: 'Топор Викинга', r: 'rare', c: '#3b82f6' },
+  { e: '🛡️', n: 'Щит Легиона', r: 'rare', c: '#3b82f6' },
   { e: '🔫', n: 'AK-47 Огонь', r: 'rare', c: '#3b82f6' },
   { e: '🔫', n: 'AWP Азимов', r: 'rare', c: '#3b82f6' },
   { e: '🧸', n: 'Мишка ТГ', r: 'common', c: '#888' },
   { e: '🌹', n: 'Роза ТГ', r: 'common', c: '#888' },
-  { e: '🚀', n: 'Ракета ТГ', r: 'rare', c: '#3b82f6' }
+  { e: '🚀', n: 'Ракета ТГ', r: 'common', c: '#888' }
 ];
 
+function renderInventory() {
+  const grid = document.getElementById('inv-grid');
+  grid.innerHTML = '';
+  if (!S.inventory || S.inventory.length === 0) {
+    grid.innerHTML = '<div class="muted" style="grid-column: 1/-1; text-align:center; padding:20px;">Инвентарь пуст...</div>';
+    return;
+  }
+  [...S.inventory].reverse().forEach(item => {
+    let div = document.createElement('div');
+    div.className = 'inv-item ' + item.r;
+    div.innerHTML = `<div class="e">${item.e}</div><div class="n">${item.n}</div><div class="r" style="color:${item.c}">${item.r}</div>`;
+    grid.appendChild(div);
+  });
+}
+
+// ================= КЕЙСЫ =================
 const CASES = {
   common: { name: 'Обычный', emoji: '📦', cost: 100, color: '#888', loot: [
     { e: '💰', l: '+150', w: 40, r: '#888', type: 'coins', val: 150 },
     { e: '💰', l: '+300', w: 30, r: '#888', type: 'coins', val: 300 },
-    { e: '🧸', l: 'Мишка ТГ', w: 20, r: '#888', type: 'item', item: SKINS[4] },
-    { e: '🌹', l: 'Роза ТГ', w: 10, r: '#888', type: 'item', item: SKINS[5] }
+    { e: '🧸', l: 'Мишка', w: 20, r: '#888', type: 'item', item: SKINS[7] },
+    { e: '🌹', l: 'Роза', w: 10, r: '#888', type: 'item', item: SKINS[8] }
   ]},
   rare: { name: 'Редкий', emoji: '🎁', cost: 500, color: '#3b82f6', loot: [
     { e: '💰', l: '+600', w: 30, r: '#888', type: 'coins', val: 600 },
-    { e: '🔫', l: 'AK-47', w: 25, r: '#3b82f6', type: 'item', item: SKINS[2] },
-    { e: '🚀', l: 'Ракета ТГ', w: 20, r: '#3b82f6', type: 'item', item: SKINS[6] },
+    { e: '🔫', l: 'AK-47', w: 25, r: '#3b82f6', type: 'item', item: SKINS[5] },
+    { e: '🛡️', l: 'Щит', w: 20, r: '#3b82f6', type: 'item', item: SKINS[4] },
     { e: '🥇', l: '+3', w: 15, r: '#ffc107', type: 'gold', val: 3 },
     { e: '💎', l: '+1', w: 10, r: '#7a00ff', type: 'gems', val: 1 }
   ]},
   legendary: { name: 'Легендарный', emoji: '👑', cost: 2500, color: '#ffcc00', loot: [
     { e: '🔪', l: 'Керамбит', w: 30, r: '#ffcc00', type: 'item', item: SKINS[0] },
     { e: '🗡️', l: 'Бабочка', w: 25, r: '#ffcc00', type: 'item', item: SKINS[1] },
-    { e: '🔫', l: 'AWP', w: 25, r: '#3b82f6', type: 'item', item: SKINS[3] },
-    { e: '💎', l: '+5', w: 15, r: '#7a00ff', type: 'gems', val: 5 },
-    { e: '💰', l: '+10000', w: 5, r: '#888', type: 'coins', val: 10000 }
+    { e: '⚔️', l: 'Катана', w: 15, r: '#ffcc00', type: 'item', item: SKINS[2] },
+    { e: '💎', l: '+5', w: 20, r: '#7a00ff', type: 'gems', val: 5 },
+    { e: '💰', l: '+10000', w: 10, r: '#888', type: 'coins', val: 10000 }
   ]}
 };
 
@@ -431,36 +491,96 @@ async function openCase(caseId) {
     if (winItem.type === 'gems') S.gems += winItem.val;
     if (winItem.type === 'item') {
       S.inventory.push({ ...winItem.item, id: Date.now() });
-      renderInventory();
     }
     renderAll();
   }, 4100);
 }
 
-function renderInventory() {
-  const grid = document.getElementById('inv-grid');
-  grid.innerHTML = '';
-  if (!S.inventory || S.inventory.length === 0) {
-    grid.innerHTML = '<div class="muted" style="grid-column: 1/-1; text-align:center; padding:20px;">Инвентарь пуст...</div>';
-    return;
-  }
-  // Показываем новые сверху
-  [...S.inventory].reverse().forEach(item => {
-    let div = document.createElement('div');
-    div.className = 'inv-item ' + item.r;
-    div.innerHTML = `<div class="e">${item.e}</div><div class="n">${item.n}</div><div class="r" style="color:${item.c}">${item.r}</div>`;
-    grid.appendChild(div);
-  });
-}
+// ================= АПГРЕЙДЕР =================
+const wheel = document.getElementById('wheel');
+document.getElementById('up-chance').oninput = (e) => {
+  document.getElementById('up-chance-val').textContent = e.target.value;
+  document.getElementById('wheel-text').textContent = e.target.value + '%';
+};
 
-// ================= БОЙ (JAB, DODGE) =================
-let isFighting = false;
-async function startFight() {
-  if (isFighting) return;
-  const bet = parseInt(document.getElementById('f-bet').value);
-  const side = document.getElementById('f-side').value;
+let isUpgrading = false;
+document.getElementById('up-play').onclick = () => {
+  if (isUpgrading) return;
+  const bet = parseInt(document.getElementById('up-bet').value);
+  const chance = parseInt(document.getElementById('up-chance').value);
   if (isNaN(bet) || bet < 10 || bet > S.coins) return toast('❌ Неверная ставка');
   
+  S.coins -= bet; renderAll();
+  isUpgrading = true;
+  document.getElementById('up-play').disabled = true;
+  const res = document.getElementById('up-result');
+  res.textContent = 'Крутим...';
+  res.style.color = 'var(--muted)';
+  
+  const success = Math.random() * 100 < chance;
+  const degrees = success ? (Math.random() * 180) : (180 + Math.random() * 180); 
+  
+  wheel.style.transform = `rotate(${1440 + degrees}deg)`;
+  
+  setTimeout(() => {
+    if (success) {
+      const mult = (100 / chance) * 0.9;
+      const payout = Math.floor(bet * mult);
+      S.coins += payout;
+      res.textContent = `🎉 ПОБЕДА! ×${mult.toFixed(2)} = ${payout} 💰`;
+      res.style.color = 'var(--green)';
+    } else {
+      res.textContent = `💥 ПРОИГРЫШ. -${bet} 💰`;
+      res.style.color = 'var(--accent)';
+    }
+    renderAll();
+    isUpgrading = false;
+    document.getElementById('up-play').disabled = false;
+    wheel.style.transition = 'none';
+    wheel.style.transform = 'rotate(0deg)';
+    setTimeout(() => wheel.style.transition = 'transform 3s cubic-bezier(0.1, 0.8, 0.2, 1)', 50);
+  }, 3100);
+};
+
+// ================= БОИ =================
+const FIGHTERS = [
+  { name: 'Хабиб', e: '🥊', hp: 120, atk: 12, dodge: 0.2 },
+  { name: 'Дракон', e: '🐉', hp: 100, atk: 18, dodge: 0.1 },
+  { name: 'Ниндзя', e: '🥷', hp: 90, atk: 14, dodge: 0.4 },
+  { name: 'Инопланетянин', e: '👽', hp: 110, atk: 15, dodge: 0.25 }
+];
+let myFighter = FIGHTERS[0];
+
+function initFighters() {
+  const container = document.getElementById('fighter-selects');
+  container.innerHTML = '';
+  FIGHTERS.forEach((f, i) => {
+    let div = document.createElement('div');
+    div.className = 'fighter-select' + (i === 0 ? ' active' : '');
+    div.innerHTML = `<div class="e">${f.e}</div><div style="font-size:11px;margin-top:5px;">${f.name}</div>`;
+    div.onclick = () => {
+      document.querySelectorAll('.fighter-select').forEach(el => el.classList.remove('active'));
+      div.classList.add('active');
+      myFighter = f;
+      document.getElementById('f-l-ava').textContent = f.e;
+      document.getElementById('f-l-name').textContent = f.name;
+    };
+    container.appendChild(div);
+  });
+  document.getElementById('f-l-ava').textContent = myFighter.e;
+  document.getElementById('f-l-name').textContent = myFighter.name;
+}
+
+let isFighting = false;
+document.getElementById('f-play').onclick = async () => {
+  if (isFighting) return;
+  const bet = parseInt(document.getElementById('f-bet').value);
+  if (isNaN(bet) || bet < 10 || bet > S.coins) return toast('❌ Неверная ставка');
+  
+  const enemy = FIGHTERS[Math.floor(Math.random() * FIGHTERS.length)];
+  document.getElementById('f-r-ava').textContent = enemy.e;
+  document.getElementById('f-r-name').textContent = enemy.name;
+
   isFighting = true;
   S.coins -= bet; renderAll();
   
@@ -470,129 +590,201 @@ async function startFight() {
   res.textContent = 'Бой начался!';
   res.style.color = 'var(--gold)';
   
-  let lHp = 100, rHp = 100;
-  const lBar = document.getElementById('f-l-hp');
-  const rBar = document.getElementById('f-r-hp');
+  let lHp = myFighter.hp, rHp = enemy.hp;
+  const lBar = document.getElementById('f-l-hp'), rBar = document.getElementById('f-r-hp');
   lBar.style.width = '100%'; rBar.style.width = '100%';
   
-  const leftEl = document.getElementById('f-left');
-  const rightEl = document.getElementById('f-right');
-  const fxLeft = document.getElementById('fx-left');
-  const fxRight = document.getElementById('fx-right');
+  const leftEl = document.getElementById('f-left'), rightEl = document.getElementById('f-right');
+  const fxLeft = document.getElementById('fx-left'), fxRight = document.getElementById('fx-right');
 
   while (lHp > 0 && rHp > 0) {
-    // Атака левого
+    // Атака игрока
     leftEl.classList.add('punch-left');
     await new Promise(r => setTimeout(r, 150));
-    
-    if (Math.random() < 0.3) { // Уклонение правого
-      rightEl.classList.add('dodge-right');
-      fxRight.textContent = 'DODGE!';
-      fxRight.style.color = 'var(--gold)';
-      fxRight.classList.add('show');
+    if (Math.random() < enemy.dodge) {
+      rightEl.style.transform = 'translateX(30px)';
+      fxRight.textContent = 'DODGE!'; fxRight.style.color = 'var(--gold)'; fxRight.classList.add('show');
     } else {
-      const dmg = 10 + Math.floor(Math.random() * 15);
-      rHp -= dmg;
-      rBar.style.width = Math.max(0, rHp) + '%';
-      fxRight.textContent = '-' + dmg + ' JAB!';
-      fxRight.style.color = 'var(--accent)';
-      fxRight.classList.add('show');
+      rHp -= myFighter.atk;
+      rBar.style.width = Math.max(0, rHp / enemy.hp * 100) + '%';
+      fxRight.textContent = '-' + myFighter.atk + ' JAB!'; fxRight.style.color = 'var(--accent)'; fxRight.classList.add('show');
     }
     await new Promise(r => setTimeout(r, 350));
-    leftEl.classList.remove('punch-left');
-    rightEl.classList.remove('dodge-right');
+    leftEl.classList.remove('punch-left'); rightEl.style.transform = '';
     fxRight.classList.remove('show');
     if (rHp <= 0) break;
 
-    // Атака правого
+    // Атака врага
     rightEl.classList.add('punch-right');
     await new Promise(r => setTimeout(r, 150));
-    
-    if (Math.random() < 0.3) {
-      leftEl.classList.add('dodge-left');
-      fxLeft.textContent = 'DODGE!';
-      fxLeft.style.color = 'var(--gold)';
-      fxLeft.classList.add('show');
+    if (Math.random() < myFighter.dodge) {
+      leftEl.style.transform = 'translateX(-30px)';
+      fxLeft.textContent = 'DODGE!'; fxLeft.style.color = 'var(--gold)'; fxLeft.classList.add('show');
     } else {
-      const dmg = 10 + Math.floor(Math.random() * 15);
-      lHp -= dmg;
-      lBar.style.width = Math.max(0, lHp) + '%';
-      fxLeft.textContent = '-' + dmg + ' HIT!';
-      fxLeft.style.color = 'var(--accent)';
-      fxLeft.classList.add('show');
+      lHp -= enemy.atk;
+      lBar.style.width = Math.max(0, lHp / myFighter.hp * 100) + '%';
+      fxLeft.textContent = '-' + enemy.atk + ' HIT!'; fxLeft.style.color = 'var(--accent)'; fxLeft.classList.add('show');
     }
     await new Promise(r => setTimeout(r, 350));
-    rightEl.classList.remove('punch-right');
-    leftEl.classList.remove('dodge-left');
+    rightEl.classList.remove('punch-right'); leftEl.style.transform = '';
     fxLeft.classList.remove('show');
   }
 
-  const winner = rHp <= 0 ? 'left' : 'right';
-  if (winner === side) {
+  if (lHp > 0) {
     S.coins += bet * 2;
-    res.textContent = `🏆 Ты победил! Выигрыш: ${bet * 2} 💰`;
+    res.textContent = `🏆 Ты победил ${enemy.name}! Выигрыш: ${bet * 2} 💰`;
     res.style.color = 'var(--green)';
   } else {
-    res.textContent = `💀 Ты проиграл. Потеряно: ${bet} 💰`;
+    res.textContent = `💀 ${enemy.name} победил. Потеряно: ${bet} 💰`;
     res.style.color = 'var(--accent)';
   }
   renderAll();
   isFighting = false;
   btn.disabled = false;
-}
-document.getElementById('f-play').onclick = startFight;
+};
 
-// ================= КРАШ =================
-let isCrashed = false, crashInt = null, crashMult = 1, crashBet = 0;
-document.getElementById('cr-start').onclick = () => {
-  if (isCrashed) return;
-  const bet = parseInt(document.getElementById('cr-bet').value);
+// ================= ТУРНИР =================
+function renderTournamentPicks() {
+  const sel = document.getElementById('t-pick');
+  sel.innerHTML = '';
+  FIGHTERS.forEach(f => {
+    let opt = document.createElement('option');
+    opt.value = f.name;
+    opt.textContent = f.e + ' ' + f.name;
+    sel.appendChild(opt);
+  });
+}
+
+document.getElementById('t-play').onclick = async () => {
+  const bet = parseInt(document.getElementById('t-bet').value);
+  const pick = document.getElementById('t-pick').value;
   if (isNaN(bet) || bet < 10 || bet > S.coins) return toast('❌ Неверная ставка');
   
   S.coins -= bet; renderAll();
-  isCrashed = true; crashMult = 1; crashBet = bet;
-  const crashPoint = Math.max(1.1, 0.99 / (1 - Math.random()));
+  const res = document.getElementById('t-result');
+  res.textContent = 'Турнир начинается!';
+  res.style.color = 'var(--gold)';
   
-  document.getElementById('cr-start').style.display = 'none';
-  document.getElementById('cr-cash').style.display = 'block';
-  document.getElementById('cr-result').textContent = '';
+  const bracket = document.getElementById('t-bracket');
+  bracket.innerHTML = '';
   
-  const multEl = document.getElementById('crash-mult');
-  multEl.style.color = 'var(--green)';
-  
-  crashInt = setInterval(() => {
-    crashMult += 0.05 + (crashMult * 0.01);
-    if (crashMult >= crashPoint) {
-      clearInterval(crashInt); isCrashed = false;
-      multEl.style.color = 'var(--accent)';
-      multEl.textContent = crashPoint.toFixed(2) + '×';
-      document.getElementById('crash-status').textContent = '💥 КРАШ!';
-      document.getElementById('cr-result').textContent = `Ты потерял ${bet} 💰`;
-      document.getElementById('cr-result').style.color = 'var(--accent)';
-      document.getElementById('cr-start').style.display = 'block';
-      document.getElementById('cr-cash').style.display = 'none';
-    } else {
-      multEl.textContent = crashMult.toFixed(2) + '×';
-      document.getElementById('cash-mult').textContent = crashMult.toFixed(2) + '×';
-    }
-  }, 50);
+  // Создаем 8 участников
+  let players = [];
+  for(let i=0; i<8; i++) players.push(FIGHTERS[Math.floor(Math.random()*FIGHTERS.length)]);
+  // Гарантируем, что выбранный боец есть в сетке (напр. первый)
+  players[0] = FIGHTERS.find(f => f.name === pick) || FIGHTERS[0];
+
+  // Симуляция 1/4
+  let round1 = [], round2 = [], round3 = [];
+  const r1Div = document.createElement('div'); r1Div.className = 'round';
+  for(let i=0; i<8; i+=2) {
+    let p1 = players[i], p2 = players[i+1];
+    let winner = Math.random() > 0.5 ? p1 : p2;
+    round1.push(winner);
+    r1Div.innerHTML += `<div class="match"><div>${p1.e} ${p1.name}</div><div>${p2.e} ${p2.name}</div></div>`;
+  }
+  bracket.appendChild(r1Div);
+  await new Promise(r => setTimeout(r, 1000));
+
+  // Симуляция 1/2
+  const r2Div = document.createElement('div'); r2Div.className = 'round';
+  for(let i=0; i<4; i+=2) {
+    let p1 = round1[i], p2 = round1[i+1];
+    let winner = Math.random() > 0.5 ? p1 : p2;
+    round2.push(winner);
+    r2Div.innerHTML += `<div class="match"><div>${p1.e} ${p1.name}</div><div>${p2.e} ${p2.name}</div></div>`;
+  }
+  bracket.appendChild(r2Div);
+  await new Promise(r => setTimeout(r, 1000));
+
+  // Финал
+  const r3Div = document.createElement('div'); r3Div.className = 'round';
+  let p1 = round2[0], p2 = round2[1];
+  let winner = Math.random() > 0.5 ? p1 : p2;
+  r3Div.innerHTML += `<div class="match" style="border-color:var(--gold);"><div>${p1.e} ${p1.name}</div><div>${p2.e} ${p2.name}</div><div class="match-winner">🏆 ${winner.e} ${winner.name}</div></div>`;
+  bracket.appendChild(r3Div);
+
+  if (winner.name === pick) {
+    const payout = bet * 6;
+    S.coins += payout;
+    res.textContent = `🏆 ${winner.name} победил! Ты выиграл ${payout} 💰`;
+    res.style.color = 'var(--green)';
+  } else {
+    res.textContent = `💀 ${winner.name} победил. Твой выбор проиграл. -${bet} 💰`;
+    res.style.color = 'var(--accent)';
+  }
+  renderAll();
 };
-document.getElementById('cr-cash').onclick = () => {
-  if (!isCrashed) return;
-  clearInterval(crashInt); isCrashed = false;
-  const payout = Math.floor(crashBet * crashMult);
-  S.coins += payout; renderAll();
-  document.getElementById('cr-result').textContent = `Ты забрал ${payout} 💰 (×${crashMult.toFixed(2)})`;
-  document.getElementById('cr-result').style.color = 'var(--green)';
-  document.getElementById('cr-start').style.display = 'block';
-  document.getElementById('cr-cash').style.display = 'none';
-  document.getElementById('crash-status').textContent = 'Забрал!';
+
+// ================= СКАЧКИ =================
+function initTracks() {
+  const c = document.getElementById('race-tracks');
+  c.innerHTML = '';
+  const colors = ['#ff4d4d', '#ffcc00', '#4ecca3', '#4da6ff'];
+  for (let i = 0; i < 4; i++) {
+    let track = document.createElement('div');
+    track.style.cssText = 'position:relative;height:40px;background:#1a1a2e;border-radius:20px;margin:12px 0;border:1px solid #333;overflow:hidden;';
+    track.innerHTML = `<div class="racer" id="racer-${i}" style="position:absolute;top:5px;left:0;font-size:28px;transition:left .1s linear;z-index:2;filter:drop-shadow(0 0 5px ${colors[i]});">🐎</div>
+    <div id="dust-${i}" style="position:absolute;top:12px;left:0;font-size:20px;opacity:0;transition:left .1s linear;z-index:1;">💨</div>
+    <div style="position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:20px;">🏁</div>`;
+    c.appendChild(track);
+  }
+}
+
+document.getElementById('r-play').onclick = async () => {
+  if (isRacing) return;
+  const bet = parseInt(document.getElementById('r-bet').value);
+  const side = parseInt(document.getElementById('r-side').value);
+  if (isNaN(bet) || bet < 10 || bet > S.coins) return toast('❌ Неверная ставка');
+  
+  isRacing = true;
+  S.coins -= bet; renderAll();
+  document.getElementById('r-play').disabled = true;
+  document.getElementById('r-result').textContent = '🏁 Заезд начался!';
+  document.getElementById('r-result').style.color = 'var(--gold)';
+  
+  initTracks();
+  const speeds = [0, 0, 0, 0], positions = [0, 0, 0, 0];
+  let winner = -1;
+  
+  const interval = setInterval(() => {
+    for (let i = 0; i < 4; i++) {
+      if (winner !== -1) continue;
+      speeds[i] = 0.5 + Math.random() * 1.5;
+      positions[i] += speeds[i];
+      
+      const el = document.getElementById(`racer-${i}`);
+      const dust = document.getElementById(`dust-${i}`);
+      el.style.left = `calc(${Math.min(92, positions[i])}% - 30px)`;
+      dust.style.left = `calc(${Math.min(92, positions[i])}% - 40px)`;
+      dust.style.opacity = 1;
+      
+      if (positions[i] >= 92 && winner === -1) winner = i;
+    }
+    
+    if (winner !== -1) {
+      clearInterval(interval);
+      const names = ['Красный', 'Жёлтый', 'Зелёный', 'Синий'];
+      if (winner === side) {
+        S.coins += bet * 3;
+        document.getElementById('r-result').textContent = `🏆 ${names[winner]} пришёл первым! Ты выиграл ${bet * 3} 💰`;
+        document.getElementById('r-result').style.color = 'var(--green)';
+      } else {
+        document.getElementById('r-result').textContent = `🏁 ${names[winner]} пришёл первым. Ты проиграл ${bet} 💰`;
+        document.getElementById('r-result').style.color = 'var(--accent)';
+      }
+      renderAll();
+      isRacing = false;
+      document.getElementById('r-play').disabled = false;
+    }
+  }, 100);
 };
 
 // ================= КРИПТА =================
 function initCrypto() {
   clearInterval(cryptoInt);
   cryptoInt = setInterval(() => {
+    if(!S) return;
     let change = (Math.random() - 0.5) * 2000;
     if (Math.random() < 0.05) change = 10000;
     if (Math.random() < 0.05) change = -10000;
@@ -615,6 +807,7 @@ function initCrypto() {
     saveUser();
   }, 1000);
 }
+
 function tradeCrypto(type) {
   const amount = parseInt(document.getElementById('crypto-amount').value);
   if (isNaN(amount) || amount <= 0) return toast('Введи сумму');
@@ -637,13 +830,11 @@ window.ADMIN = {
   addCoins: (n) => { S.coins += n; renderAll(); toast(`+${n} 💰`); },
   addGold: (n) => { S.gold += n; renderAll(); toast(`+${n} 🥇`); },
   addGems: (n) => { S.gems += n; renderAll(); toast(`+${n} 💎`); },
-  dropKnife: () => { S.inventory.push({ ...SKINS[0], id: Date.now() }); renderInventory(); toast('Выдан Керамбит!'); }
+  dropKnife: () => { S.inventory.push({ ...SKINS[0], id: Date.now() }); renderAll(); toast('Выдан Керамбит!'); }
 };
 
 // ИНИЦИАЛИЗАЦИЯ
-if (currentUser && DB[currentUser]) {
-  loadGame();
-}
+if (currentUser && DB[currentUser]) loadGame();
 renderCases();
 </script>
 </body>
